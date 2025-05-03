@@ -24,7 +24,7 @@
   "scripts": {
     "prepare": "npm run build",
     "prepublishOnly": "npm run checkLoggedIn && npm run lint && npm run test",
-    "build": "tsc",
+    "build": "node ./scripts/collect-types.js && prettier --write --ignore-path '' ./build/src/index.d.ts",
     "prettier": "prettier --write .",
     "lint": "prettier --check . && eslint . --ext .ts && cspell '**/*' ",
     "test": "jest ./test",
